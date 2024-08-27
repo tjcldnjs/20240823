@@ -2,36 +2,20 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper
-	namespace="com.tenco.bank.repository.interfaces.BlogRepository">
+	namespace="com.tenco.bank.repository.interfaces.BookRepository">
 
+	<!-- <insert id="insert">
+		insert into book_tb (title, author, publisher, img, category, total_stock, current_stock)
+		values(#{title},#{author},#{publisher},#{cover},#{categoryId},'1','1')
+	</insert> -->
 	<insert id="insert">
-		insert into tb (title, content, name)
-		values(#{title},#{content},#{name})
+		insert into book_tb (title, author, publisher, cover, category, total_stock, current_stock)
+		values(#{title},#{author},#{publisher},#{cover},#{categoryName},'1','1')
 	</insert>
 
-	<update id="updateById">
-		update tb set title = #{title}, content =
-		#{content},
-		name = #{name} where id = #{id}
-	</update>
-
-	<delete id="deleteById">
-		delete from tb where id = #{id}
-	</delete>
-	
-	<select id="select" resultType="com.tenco.bank.repository.model.Blog">
-		select * from tb limit #{limit} offset #{offset}
+	<select id="select" resultType="com.tenco.bank.dto.Item">
+	select title,author,cover from book_tb
 	</select>
-	
-	<select id="selectCount" resultType="int">
-		select count(*) from tb where tb.id
-	</select>
-	
-	<select id="selectById" resultType="com.tenco.bank.repository.model.Blog">
-		select * from tb where id = #{id}
-	</select>
-	
-	
 
 </mapper>
 

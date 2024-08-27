@@ -1,7 +1,5 @@
 package com.tenco.bank.dto;
 
-import java.util.List;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -13,10 +11,12 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 @Builder
-
-public class Todo {
-
-	private List<Item> item;
-
-	
+public class Item {
+	private String title;
+	private String author;
+	private String pubDate;
+	private String description;
+	private String cover;
+	private String categoryName;
+	private String publisher;
 }
